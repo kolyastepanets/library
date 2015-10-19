@@ -17,13 +17,13 @@ puts "Opening file"
   end
 
 puts "Reader who ofter takes books:"
-library.who_often_takes_books
+  library.who_often_takes_books
 
 puts "The most popular book:"
-library.the_most_popular_book
+  library.the_most_popular_book
 
 puts "People who ordered one of the three most popular books"
-library.how_many_people_ordered_one_of_the_three_most_popular_book
+  library.how_many_people_ordered_one_of_the_three_most_popular_book
 
 puts "Saved all data to file"
   begin
