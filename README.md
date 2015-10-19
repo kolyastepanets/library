@@ -1,1 +1,1 @@
-Run run.rb to execute the program.
+Run ```run.rb``` to execute the program.
