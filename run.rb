@@ -4,16 +4,13 @@ require_relative './library'
 
 puts "Opening file"
   begin
-    f = File.open('library.yaml', 'r')
-    library = YAML::load f.read
+    library = Marshal.load(File.binread('data.saved'))
   rescue
     puts 'Failed'
     library = data
     puts "Loaded default data"
   else
-      puts "Ok."
-  ensure
-    f.close unless f.nil?
+    puts "Ok."
   end
 
 puts "Reader who ofter takes books:"
@@ -27,9 +24,6 @@ puts "People who ordered one of the three most popular books"
 
 puts "Saved all data to file"
   begin
-    f = File.open('library.yaml', 'w')
-    f.write library.to_yaml
+    File.open('data.saved', 'wb') {|f| f.write(Marshal.dump(library))}
     puts "Completed!"
-  ensure
-    f.close unless f.nil?
   end

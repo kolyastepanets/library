@@ -25,9 +25,9 @@ class Library
   def how_many_people_ordered_one_of_the_three_most_popular_book
     orders = @orders.collect{|o| o.book.title}
     books_titles = Hash.new(0)
-    orders.each{ |e| books_titles[e] += 1 }
-    books_titles.max_by{|k, v| books_titles[k] = v }
-    3.times { |i| puts "Popular book: #{books_titles.keys[i]} have #{books_titles.values[i]} reader(s);"}
+    orders.map{ |e| books_titles[e] += 1 }
+    books_titles.sort_by{|k,v| v}.reverse
+    books_titles.each{|k,v| puts "Top book: #{k} has ordered #{v} times"}
   end
 
 end
